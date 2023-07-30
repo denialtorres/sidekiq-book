@@ -6,8 +6,13 @@
 # We make no guarantees that this code is fit for any purpose.
 # Visit https://pragprog.com/titles/dcsidekiq for more book information.
 #---
+require "sidekiq/web"
+
 Rails.application.routes.draw do
   resources :orders, only: [ :new, :create, :show ]
   resources :simulated_behaviors, only: [ :edit, :update ]
   root "welcome#show"
+
+  # make the sidekiq web ui available on /sidekiq
+  mount Sidekiq::Web => "/sidekiq"
 end

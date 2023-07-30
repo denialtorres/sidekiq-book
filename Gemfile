@@ -39,6 +39,9 @@ gem "faker"
 # This is used to run the dev environment
 gem "foreman"
 
+# for background jobs
+gem "sidekiq"
+
 # Prevents our workers from running too long if a request
 # doesn't return in time.
 gem "rack-timeout"
